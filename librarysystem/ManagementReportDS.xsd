@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ManagementReportDS" targetNamespace="http://tempuri.org/ManagementReportDS.xsd" xmlns:mstns="http://tempuri.org/ManagementReportDS.xsd" xmlns="http://tempuri.org/ManagementReportDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LibrarySystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LibrarySystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SA43Team4B.Properties.Settings.GlobalReference.Default.LibrarySystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BooksBorrowTableAdapter" GeneratorDataComponentClassName="BooksBorrowTableAdapter" Name="BooksBorrow" UserDataComponentName="BooksBorrowTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LibrarySystemConnectionString (Settings)" DbObjectName="LibrarySystem.dbo.BooksBorrow" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MemberName, BookTitle, BookCategory, IssueDate, MemberType
+FROM            BooksBorrow</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MemberName" DataSetColumn="MemberName" />
+              <Mapping SourceColumn="BookTitle" DataSetColumn="BookTitle" />
+              <Mapping SourceColumn="BookCategory" DataSetColumn="BookCategory" />
+              <Mapping SourceColumn="IssueDate" DataSetColumn="IssueDate" />
+              <Mapping SourceColumn="MemberType" DataSetColumn="MemberType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ManagementReportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ManagementReportDS" msprop:Generator_UserDSName="ManagementReportDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BooksBorrow" msprop:Generator_TableClassName="BooksBorrowDataTable" msprop:Generator_TableVarName="tableBooksBorrow" msprop:Generator_TablePropName="BooksBorrow" msprop:Generator_RowDeletingName="BooksBorrowRowDeleting" msprop:Generator_RowChangingName="BooksBorrowRowChanging" msprop:Generator_RowEvHandlerName="BooksBorrowRowChangeEventHandler" msprop:Generator_RowDeletedName="BooksBorrowRowDeleted" msprop:Generator_UserTableName="BooksBorrow" msprop:Generator_RowChangedName="BooksBorrowRowChanged" msprop:Generator_RowEvArgName="BooksBorrowRowChangeEvent" msprop:Generator_RowClassName="BooksBorrowRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MemberName" msprop:Generator_ColumnVarNameInTable="columnMemberName" msprop:Generator_ColumnPropNameInRow="MemberName" msprop:Generator_ColumnPropNameInTable="MemberNameColumn" msprop:Generator_UserColumnName="MemberName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTitle" msprop:Generator_ColumnVarNameInTable="columnBookTitle" msprop:Generator_ColumnPropNameInRow="BookTitle" msprop:Generator_ColumnPropNameInTable="BookTitleColumn" msprop:Generator_UserColumnName="BookTitle">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCategory" msprop:Generator_ColumnVarNameInTable="columnBookCategory" msprop:Generator_ColumnPropNameInRow="BookCategory" msprop:Generator_ColumnPropNameInTable="BookCategoryColumn" msprop:Generator_UserColumnName="BookCategory">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IssueDate" msprop:Generator_ColumnVarNameInTable="columnIssueDate" msprop:Generator_ColumnPropNameInRow="IssueDate" msprop:Generator_ColumnPropNameInTable="IssueDateColumn" msprop:Generator_UserColumnName="IssueDate" type="xs:dateTime" />
+              <xs:element name="MemberType" msprop:Generator_ColumnVarNameInTable="columnMemberType" msprop:Generator_ColumnPropNameInRow="MemberType" msprop:Generator_ColumnPropNameInTable="MemberTypeColumn" msprop:Generator_UserColumnName="MemberType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F970C45-3311-4414-A488-AFA473489F0F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SA43Team4B</RootNamespace>
+    <AssemblyName>SA43Team4B</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="01_MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="01_MainMenu.Designer.cs">
+      <DependentUpon>01_MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Book.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookIssue.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookListDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookListDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BookListReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookListReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BooksBorrow.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChartCrystalReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChartCrystalReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ChartReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChartReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="eLibraryModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eLibraryModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eLibraryModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eLibraryModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eLibraryModel1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormBookListReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookListReport.Designer.cs">
+      <DependentUpon>FormBookListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBookLoaned.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookLoaned.Designer.cs">
+      <DependentUpon>FormBookLoaned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBookSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookSearch.Designer.cs">
+      <DependentUpon>FormBookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMaintenanceBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMaintenanceBook.Designer.cs">
+      <DependentUpon>FormMaintenanceBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartReport.Designer.cs">
+      <DependentUpon>FormChartReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormIssueBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIssueBook.Designer.cs">
+      <DependentUpon>FormIssueBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManagementReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManagementReport.Designer.cs">
+      <DependentUpon>FormManagementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMemberMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMemberMain.Designer.cs">
+      <DependentUpon>FormMemberMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMemberStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMemberStatus.Designer.cs">
+      <DependentUpon>FormMemberStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrintReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintReceipt.Designer.cs">
+      <DependentUpon>FormPrintReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReturnBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReturnBook.Designer.cs">
+      <DependentUpon>FormReturnBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMemberSearchBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMemberSearchBook.Designer.cs">
+      <DependentUpon>FormMemberSearchBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssueDetail.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogInInfo.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainControlClass.cs" />
+    <Compile Include="FormMaintenanceMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMaintenanceMember.Designer.cs">
+      <DependentUpon>FormMaintenanceMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagementCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ManagementReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagementReportDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Member.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberCategory.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrintReceiptCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintReceiptCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PrintReceiptDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintReceiptDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>eLibraryModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemplateForm.Designer.cs">
+      <DependentUpon>TemplateForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="01_MainMenu.resx">
+      <DependentUpon>01_MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookListReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BookListReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChartReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ChartReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBookListReport.resx">
+      <DependentUpon>FormBookListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBookLoaned.resx">
+      <DependentUpon>FormBookLoaned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBookSearch.resx">
+      <DependentUpon>FormBookSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMaintenanceBook.resx">
+      <DependentUpon>FormMaintenanceBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartReport.resx">
+      <DependentUpon>FormChartReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIssueBook.resx">
+      <DependentUpon>FormIssueBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManagementReport.resx">
+      <DependentUpon>FormManagementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMemberMain.resx">
+      <DependentUpon>FormMemberMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMaintenanceMember.resx">
+      <DependentUpon>FormMaintenanceMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMemberStatus.resx">
+      <DependentUpon>FormMemberStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintReceipt.resx">
+      <DependentUpon>FormPrintReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReturnBook.resx">
+      <DependentUpon>FormReturnBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMemberSearchBook.resx">
+      <DependentUpon>FormMemberSearchBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ManagementCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintReceiptCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrintReceiptCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TemplateForm.resx">
+      <DependentUpon>TemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="BookListDataSet.xsc">
+      <DependentUpon>BookListDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BookListDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BookListDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BookListDataSet.xss">
+      <DependentUpon>BookListDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ChartCrystalReport.xsc">
+      <DependentUpon>ChartCrystalReport.xsd</DependentUpon>
+    </None>
+    <None Include="ChartCrystalReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChartCrystalReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ChartCrystalReport.xss">
+      <DependentUpon>ChartCrystalReport.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="eLibraryModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>eLibraryModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="eLibraryModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>eLibraryModel1.edmx</DependentUpon>
+      <LastGenOutput>eLibraryModel1.Context.cs</LastGenOutput>
+    </None>
+    <None Include="eLibraryModel1.edmx.diagram">
+      <DependentUpon>eLibraryModel1.edmx</DependentUpon>
+    </None>
+    <None Include="eLibraryModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>eLibraryModel1.edmx</DependentUpon>
+      <LastGenOutput>eLibraryModel1.cs</LastGenOutput>
+    </None>
+    <None Include="ManagementReportDS.xsc">
+      <DependentUpon>ManagementReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="ManagementReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ManagementReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ManagementReportDS.xss">
+      <DependentUpon>ManagementReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PrintReceiptDS.xsc">
+      <DependentUpon>PrintReceiptDS.xsd</DependentUpon>
+    </None>
+    <None Include="PrintReceiptDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintReceiptDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintReceiptDS.xss">
+      <DependentUpon>PrintReceiptDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IMG_1985.JPG" />
+    <Content Include="new-logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

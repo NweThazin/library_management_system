@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="35f2911e872b417cb3143ca869f34cfb" Name="Diagram1">
+        <EntityTypeShape EntityType="LibrarySystemModel.Book" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.BookIssue" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Employee" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.IssueDetail" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.LogInInfo" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Member" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.MemberCategory" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibrarySystemModel.BooksBorrow" Width="1.5" PointX="2.75" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="LibrarySystemModel.FK_IssueDetails_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="LibrarySystemModel.FK_BookIssue_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="LibrarySystemModel.FK_BookIssue_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="LibrarySystemModel.FK_IssueDetails_BookIssue" ManuallyRouted="false" />
+        <AssociationConnector Association="LibrarySystemModel.FK_Employee_LogInInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="LibrarySystemModel.FK_Member_LogInInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="LibrarySystemModel.FK_Member_MemberCategory" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

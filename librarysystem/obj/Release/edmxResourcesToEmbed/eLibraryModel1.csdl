@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibrarySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookISBN" />
+    </Key>
+    <Property Name="BookISBN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookCategory" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookAuthor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookPress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookEdition" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="BookStockNum" Type="Int32" Nullable="false" />
+    <Property Name="BookNumberRented" Type="Int32" Nullable="false" />
+    <Property Name="BookWordNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookFormat" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ShelfDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="IssueDetails" Relationship="Self.FK_IssueDetails_Book" FromRole="Book" ToRole="IssueDetails" />
+  </EntityType>
+  <EntityType Name="BookIssue">
+    <Key>
+      <PropertyRef Name="IssueID" />
+    </Key>
+    <Property Name="IssueID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MemberID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_BookIssue_Employee" FromRole="BookIssue" ToRole="Employee" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_BookIssue_Member" FromRole="BookIssue" ToRole="Member" />
+    <NavigationProperty Name="IssueDetails" Relationship="Self.FK_IssueDetails_BookIssue" FromRole="BookIssue" ToRole="IssueDetails" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpGender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpPosition" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpPermissions" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BookIssues" Relationship="Self.FK_BookIssue_Employee" FromRole="Employee" ToRole="BookIssue" />
+    <NavigationProperty Name="LogInInfo" Relationship="Self.FK_Employee_LogInInfo" FromRole="Employee" ToRole="LogInInfo" />
+  </EntityType>
+  <EntityType Name="IssueDetail">
+    <Key>
+      <PropertyRef Name="IssueID" />
+      <PropertyRef Name="BookISBN" />
+    </Key>
+    <Property Name="IssueID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookISBN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IssueDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ReturnDate" Type="DateTime" Precision="0" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Availability" Type="Int32" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_IssueDetails_Book" FromRole="IssueDetails" ToRole="Book" />
+    <NavigationProperty Name="BookIssue" Relationship="Self.FK_IssueDetails_BookIssue" FromRole="IssueDetails" ToRole="BookIssue" />
+  </EntityType>
+  <EntityType Name="LogInInfo">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoginPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_LogInInfo" FromRole="LogInInfo" ToRole="Employee" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_Member_LogInInfo" FromRole="LogInInfo" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MemberName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MemberType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LibraryCardStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MemberGender" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MemberPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MemberEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MemberDepartment" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MemberAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BookIssues" Relationship="Self.FK_BookIssue_Member" FromRole="Member" ToRole="BookIssue" />
+    <NavigationProperty Name="LogInInfo" Relationship="Self.FK_Member_LogInInfo" FromRole="Member" ToRole="LogInInfo" />
+    <NavigationProperty Name="MemberCategory" Relationship="Self.FK_Member_MemberCategory" FromRole="Member" ToRole="MemberCategory" />
+  </EntityType>
+  <EntityType Name="MemberCategory">
+    <Key>
+      <PropertyRef Name="MemberType" />
+    </Key>
+    <Property Name="MemberType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberLimit" Type="Int32" Nullable="false" />
+    <Property Name="DaysLimit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Member_MemberCategory" FromRole="MemberCategory" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="BooksBorrow">
+    <Key>
+      <PropertyRef Name="MemberName" />
+      <PropertyRef Name="BookTitle" />
+      <PropertyRef Name="BookCategory" />
+      <PropertyRef Name="IssueDate" />
+      <PropertyRef Name="MemberType" />
+    </Key>
+    <Property Name="MemberName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookCategory" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IssueDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MemberType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_IssueDetails_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="IssueDetails" Type="Self.IssueDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookISBN" />
+      </Principal>
+      <Dependent Role="IssueDetails">
+        <PropertyRef Name="BookISBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookIssue_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="BookIssue" Type="Self.BookIssue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="BookIssue">
+        <PropertyRef Name="EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookIssue_Member">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="BookIssue" Type="Self.BookIssue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="BookIssue">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IssueDetails_BookIssue">
+    <End Role="BookIssue" Type="Self.BookIssue" Multiplicity="1" />
+    <End Role="IssueDetails" Type="Self.IssueDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookIssue">
+        <PropertyRef Name="IssueID" />
+      </Principal>
+      <Dependent Role="IssueDetails">
+        <PropertyRef Name="IssueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_LogInInfo">
+    <End Role="LogInInfo" Type="Self.LogInInfo" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LogInInfo">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_LogInInfo">
+    <End Role="LogInInfo" Type="Self.LogInInfo" Multiplicity="1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LogInInfo">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_MemberCategory">
+    <End Role="MemberCategory" Type="Self.MemberCategory" Multiplicity="1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberCategory">
+        <PropertyRef Name="MemberType" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="MemberType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="BookIssues" EntityType="Self.BookIssue" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="IssueDetails" EntityType="Self.IssueDetail" />
+    <EntitySet Name="LogInInfoes" EntityType="Self.LogInInfo" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="MemberCategories" EntityType="Self.MemberCategory" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="BooksBorrows" EntityType="Self.BooksBorrow" />
+    <AssociationSet Name="FK_IssueDetails_Book" Association="Self.FK_IssueDetails_Book">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="IssueDetails" EntitySet="IssueDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookIssue_Employee" Association="Self.FK_BookIssue_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="BookIssue" EntitySet="BookIssues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookIssue_Member" Association="Self.FK_BookIssue_Member">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="BookIssue" EntitySet="BookIssues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IssueDetails_BookIssue" Association="Self.FK_IssueDetails_BookIssue">
+      <End Role="BookIssue" EntitySet="BookIssues" />
+      <End Role="IssueDetails" EntitySet="IssueDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_LogInInfo" Association="Self.FK_Employee_LogInInfo">
+      <End Role="LogInInfo" EntitySet="LogInInfoes" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_LogInInfo" Association="Self.FK_Member_LogInInfo">
+      <End Role="LogInInfo" EntitySet="LogInInfoes" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_MemberCategory" Association="Self.FK_Member_MemberCategory">
+      <End Role="MemberCategory" EntitySet="MemberCategories" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
